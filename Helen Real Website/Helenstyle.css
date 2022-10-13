@@ -1,0 +1,9 @@
+h1{color: black;
+background-color: mediumvioletred;}
+h1:hover{color: mediumvioletred;
+background-color: black;}
+p{color: purple;
+margin: 80px;
+letter-spacing: initial;
+    text-align: justify;
+}

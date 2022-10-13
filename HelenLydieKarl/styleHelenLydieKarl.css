@@ -1,0 +1,235 @@
+/* * und body verhindern, dass die automatischen Einstellungen des Browsers verwendet werden und die Website in unterschiedlichen Browsern unterschiedlich aussieht*/
+* {
+    box-sizing: border-box;
+}
+ /*Bilder sollen grundsätzlich ein wenig abgerundete Ecken haben, um etwas weniger technisch zu wirken*/
+img {
+    display: block;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+body {
+    margin: 0;
+}
+
+ /*topnav bezieht sich auf den Header, der responsiv sein soll, was allerdings nicht ganz funktioniert hat.
+  Da ich auf kleine Screens gerne ein Burgermenu haben wollte, dieses aber zu kompliziert zu coden war für mich, bricht
+  die Website jetzt nur um auf kleinen Screens und man kann den Header noch nicht wirklich bedienen auf dieser Bildschirmgröße.*/
+.topnav{
+    font-family: "Zen Maru Gothic", sans-serif;
+    background-color: #004b44;
+    overflow: hidden;
+}
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.topnav a:hover {
+    text-decoration-line: underline;
+    background-color: rgba(205, 224, 222, 0.5);
+    color: #ffd163;
+}
+.topnav a.active {
+    background-color: #013430;
+    color: #f1eeec;
+}
+/*hier wollte ich das Burgericon einfügen, das hat aber nicht geklappt*/
+.topnav a.icon {display: none}
+
+/* hier wird definiert wie der Header umbricht bei einer Anzeigegröße von 600px*/
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child){display: none}
+    .topnav a.icon{
+        float: right;
+        display: block;
+    }
+}
+@media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative}
+.topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+}
+
+
+ /*dies war mein erster Versuch, eine responsive Bildergalerie zu gestalten und zu definieren, wie die Bilder umbrechen.
+ Dabei wollte ich den Bildschirm in Zeilen und Reihen unterteilen, das hat aber aus mir unerfindlichen Gründen nicht so funktioniert wie ich wollte*/
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.collumn {
+    display: flex;
+    flex: 50%;
+    flex-direction: column;
+    padding: 0 4px;
+}
+.collumn img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+
+  /*Ich habe es dann mit einem Grid versucht, was gut funktioniert hat und festgestellt, dass ich die Reihen in die Parameter selbst schreiben muss
+  Weiter unten habe ich definiert, wie sich die Reihen verändern auf kleineren Anzeigen*/
+.grid img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.grid {
+    column-count: 3;
+    column-gap: 10px;
+}
+
+/* Die Tabelle hat sich relativ gut als Anzeige für den Lebenslauf geeignet.
+Sie ist noch wenig elegant und gewisse gestalterische Feinheiten müssen noch angepasst werden.
+ebenfalls habe ich entdeckt, dass die tabelle über td in Zeilen und nicht in Reihen definiert wird.
+Das hat nicht besonders viel Sinn ergeben für das, was ich darstellen wollte, weshalb ich allen tds dann auch noch Klassen
+zuweisen musste. Das war ein bisschen zeitintensiver und ich suche noch nach einer besseren Möglichkeit.*/
+table {
+    border: 2px solid #c2bfb8;
+    max-width: 800px;
+    margin: 30px auto;
+    font-family: "Zen Maru Gothic", sans-serif;
+    border-collapse: collapse;
+    border-radius: 15px;
+
+}
+th {height: 80px;
+    text-align: center;
+    padding: 10px;
+    max-font-size: 20px;
+}
+td{height: 160px;
+    text-align: left;
+    padding: 10px;
+    max-font-size: 15px;
+}
+.date { color: #001a18;
+    background-color: rgb(183, 220, 217);
+}
+
+th, td {border-bottom: 1px solid rgba(115, 93, 0, 0.5)
+}
+
+
+/*hier geht es um die darstellung des videogrids. Das habe ich ziemlich ähnlich wie das der Illustrationen gemacht.
+Hier habe ich aber noch einen Videotitel sowie eine Videobeschreibung eingefügt. Die videos spielen automatisch ab.
+Das ist vermutlich nicht ideal für die Ladezeit bzw. das Datenvolumen der Nutzer und soll noch angepasst werden, sodass der Videoloop erst
+nach anklicken abgespielt wird und auch wieder angehalten werden kann.*/
+video {width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+
+.content{
+    background: rgb(201, 217, 216);
+    color: #3b2a00;
+    padding: 20px;}
+
+.videogrid{column-count: 3;
+    column-gap: 10px}
+.animation {margin: 10px}
+
+h1{ font-family: Ashemore, sans-serif;
+    color: #111a1a;
+}
+p{
+    font-family: "Zen Maru Gothic", serif;
+    color: #2d3a3a;
+}
+
+
+.table {text-align: center}
+
+ /*das ist das Bild und der Text der "über mich" seite
+ über das grid-template-colums kommte ich einstellen, wie breit das bild und wie breit der text werden.
+ Erst hatte ich das über width und height versucht, das hat allerding nicht auf allen Bildschirmen funktioniert-*/
+.selfdescription {font-family: "Zen Maru Gothic", serif;
+font-size: small;
+    line-height: 1.8;
+}
+.self{
+    height: 800px;
+    }
+.pictureandtext {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+margin: 10px}
+.full{width: 100%}
+h2 {font-family: Ashemore, sans-serif
+}
+
+/* hier geht es um den umbruch der verschieden grid-ähnlichen dinge die ich eingebaut habe um die größenverhältnisse auf der website zu bestimmen*/
+@media (max-width: 800px) {
+    .pictureandtext { grid-template-columns: 1fr;}
+    .grid {column-count: 2;}
+    .videogrid {column-count: 2;}
+}
+
+
+ /*Überschriften für die underpages*/
+.underpage {
+    margin: 40px auto;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-color: #004b44;
+    text-decoration-thickness: 1px;
+    color: #001a18;
+}
+ /*ich wollte unbedingt eine kleine Animation einbauen und habe es hier mal mit einem einfachen Farbwechsel probiert*/
+@keyframes example {
+    0% {background-color: #065c6c;}
+    25%{background-color: #228796;
+    }
+    50%{background-color: #2b648c;
+    }
+    75%{background-color: #1f398f;
+    }
+    100%{background-color: #25248d;
+    }
+}
+
+/*Hier wird der Text auf dem Bild positioniert. Ich wollte erst einen Text und einen Button, habe es aber nicht hinbekommen, dass diese sich nicht überschneiden.*/
+.container {
+    position: relative;
+    width: 100%;
+}
+.container img {
+    width: 100%;
+    height: auto;
+    position: center;
+}
+
+.container button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #004b44;
+    color: black;
+    font-size: 20px;
+    font-family: "Ashemore", sans-serif;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/*hier wird die Animation eingesetzt*/
+.container button:hover { animation-name: example;
+    animation-duration: 5s;
+    animation-direction: reverse;
+color: white;}

@@ -1,0 +1,40 @@
+p {
+    margin: 60px;
+    color: mediumvioletred;
+}
+
+
+h1 {
+    color: cadetblue;
+    font-family: "Zen Loop";
+    font-max-size: 50px;
+    text-align: center;
+    margin:50px;
+}
+.black{border-radius: 50% 70% 4% 20%;
+text-align: justify;
+padding: 10% 10%;
+}
+
+p.gelb{color: goldenrod;
+    background-color:papayawhip;
+    background-blend-mode: color-burn;
+    text-align: center;
+    padding: 5px 10px;}
+
+img{border-radius: 30% 20% 5% 60%;}
+
+.embedded{
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 90px;
+    text-align: center;
+    height: 500px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: aquamarine;
+}
+
+
+
+span.illustration{color: blueviolet}
